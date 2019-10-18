@@ -4,6 +4,7 @@
       <el-col :span="8">
         <el-card shadow="hover" class="mgb20" style="height:252px;">
           <img :src="imgSrc+'/img/moduleManage/a.jpeg'"/>
+          <img :src="imgSrc+'/img/moduleManage/a.jpeg'"/>
         </el-card>
       </el-col>
       <el-col :span="8">
