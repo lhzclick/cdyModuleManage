@@ -3,6 +3,7 @@
     <el-row :gutter="20">
       <el-col :span="8">
         <el-card shadow="hover" class="mgb20" style="height:252px;">
+          <img :src="imgSrc+'/img/moduleManage/a.jpeg'"/>
         </el-card>
       </el-col>
       <el-col :span="8">
@@ -18,7 +19,9 @@
 export default {
   name: "index",
   data() {
-    return {}
+    return {
+      imgSrc:process.env.VUE_APP_IMG_SRC
+    }
   },
   components: {
   },
