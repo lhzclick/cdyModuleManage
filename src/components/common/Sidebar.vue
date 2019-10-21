@@ -41,7 +41,7 @@
                     {
                         icon: 'el-icon-lx-home',
                         index: 'index',
-                        title: '系统首页'
+                        title: '模组生产'
                     },
                     // {
                     //     icon: 'el-icon-rank',

@@ -17,7 +17,7 @@ export default new Router({
                 {
                     path: '/index',
                     component: resolve => require(['../components/page/Index.vue'], resolve),
-                    meta: { title: '系统首页' }
+                    meta: { title: '模组生产' }
                 },
                 {
                     // 权限页面
