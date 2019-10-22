@@ -20,7 +20,7 @@
               <span class="prompt">*查询时间为订单时间</span>
             </div>
             <div style="margin-top:20px;">
-              <el-table :data="tableData" border style="width: 100%;font-size:14px">
+              <el-table :data="tableData" border style="width: 100%;font-size:14px" @row-click="openDetails">
                 <el-table-column prop="orderTime" label="订单时间"></el-table-column>
                 <el-table-column prop="manufacturer" label="制造商"></el-table-column>
                 <el-table-column prop="factorName" label="厂家名称"></el-table-column>
@@ -33,15 +33,6 @@
                         style="color:#5ca3e6;cursor:pointer"
                       >{{scope.row.productOrder}}</span>
                     </div>
-                    <!-- 订单详情弹框 -->
-                    <!-- <el-popover
-                              ref="popover"
-                              placement="bottom"
-                              width="1000"
-                              v-model="visible"
-                              trigger="click">
-                                
-                    </el-popover>-->
                   </template>
                 </el-table-column>
                 <el-table-column prop="transaction" :formatter="formatstate" label="交易状态"></el-table-column>
@@ -61,7 +52,7 @@
           </template>
         </el-card>
       </el-col>
-      <el-col :span="24">
+      <el-col :span="24"  v-if="showPrise">
         <el-card shadow="hover" class="mgb20">
           <div>
             <ul class="prompt_tab">
@@ -121,27 +112,27 @@
     </el-row>
 
     <!-- 订单详情弹框 -->
-    <el-dialog title="收货地址" :visible.sync="isShowOrderDetail">
+    <el-dialog width="1040px"  title="订单信息" :visible.sync="isShowOrderDetail" custom-class="dialogStyle">
       <div>
         <ul class="product_title clear">
           <li style="width:70%">产品信息</li>
           <li style="width:28%">数量</li>
         </ul>
         <ul class="order_list">
-          <li>
-            <img :src="imgSrc+'/img/moduleManage/order_m01.png'" />
-            <div class="order_information">
+          <li class="clear">
+            <img style="float:left" :src="imgSrc+'/img/moduleManage/order_m01.png'" />
+            <div style="float:left" class="order_information">
               <p>LSY-M01</p>
               <p>适用于物联网集中器1对多TTL接口采集一对一485、Mod-bus协议采集工业仪表</p>
             </div>
-            <div class="order_number">111</div>
+            <div style="float:left" class="order_number">111</div>
           </li>
         </ul>
         <ul class="receiving_list">
           <li v-for="(item,index) in listData" :key="index">{{item}}</li>
         </ul>
         <div class="close-btn" style="margin-top:15px;">
-          <el-button type="primary" @click="visible = false">质检报告</el-button>
+          <el-button type="primary" @click="isShowOrderDetail = false">质检报告</el-button>
           <el-button @click="isShowOrderDetail = false">关闭</el-button>
         </div>
       </div>
@@ -157,6 +148,7 @@ export default {
       imgSrc: process.env.VUE_APP_IMG_SRC,
       value: "",
       value1: "",
+      showPrise:false,
       pickerOptions: {
         disabledDate(time) {
           return time.getTime() > Date.now();
@@ -226,6 +218,9 @@ export default {
     orderDetails(index, row) {
       this.isShowOrderDetail = true;
     },
+    openDetails (index,row) {
+        this.showPrise = true;     
+    },
     //分页
     handleSizeChange(val) {
       // console.log(`每页 ${val} 条`);
@@ -277,7 +272,14 @@ export default {
 };
 </script>
 
-
+<style >
+  .dialogStyle>div:nth-child(1){
+  border-bottom: 1px solid #EBEEF5;
+}
+.dialogStyle>div:nth-child(2){
+  padding-top: 0;
+}
+</style>
 <style scoped>
 .el-row {
   margin-bottom: 20px;
@@ -356,4 +358,5 @@ li {
   border: 1px solid #ffccde;
   background: #f5dce5;
 }
+
 </style>
