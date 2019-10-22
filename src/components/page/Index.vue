@@ -52,7 +52,7 @@
                               ref="popover"
                               placement="bottom"
                               width="1000"
-                              v-model="scope.row.visible"
+                              v-model="visible"
                               trigger="click">
                                 <div>
                                     <ul class="product_title clear">
@@ -75,8 +75,8 @@
                                         </li>
                                     </ul>
                                     <div class='close-btn' style='margin-top:15px;'>
-                                      <el-button type="primary" @click="scope.row.visible = false" >质检报告</el-button>
-                                      <el-button @click="scope.row.visible = false">关闭</el-button>
+                                      <el-button type="primary" @click="visible = false" >质检报告</el-button>
+                                      <el-button @click="visible = false">关闭</el-button>
                                     </div>
                                 </div>
                           </el-popover>
@@ -201,7 +201,6 @@
   </div>
 </template>
 
-
 <script>
 export default {
   name: "index",
@@ -223,17 +222,14 @@ export default {
           productOrder:'订单详情',
           transaction:0,
           operation:0,
-          visible:false,
          },
-        { orderTime: '2019-09-11 14:46:41',
-          manufacturer: '楚天汉仪',
-          factorName: '硬件开发测试有限公司',
-          orderNumber:'LSY1568184400635',
-          productOrder:'订单详情',
-          transaction:1,
-          operation:1,
-          visible:false,
-          },
+        // { orderTime: '2019-09-11 14:46:41',
+        //   manufacturer: '楚天汉仪',
+        //   factorName: '硬件开发测试有限公司',
+        //   orderNumber:'LSY1568184400635',
+        //   productOrder:'订单详情',
+        //   transaction:1,
+        //   operation:1},
          ],
       pageNo:1,
       pageSize:10,
