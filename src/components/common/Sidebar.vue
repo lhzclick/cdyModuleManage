@@ -43,6 +43,11 @@
                         index: 'index',
                         title: '模组生产'
                     },
+                    {
+                        icon: 'el-icon-lx-home',
+                        index: 'test',
+                        title: '测试'
+                    },
                     // {
                     //     icon: 'el-icon-rank',
                     //     index: '6',
