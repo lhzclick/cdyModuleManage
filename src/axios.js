@@ -3,7 +3,7 @@ import qs from "qs"
 import { Message ,Loading} from 'element-ui'
 //  创建axios实例
 const service = axios.create({
-    baseURL: process.env.VUE_APP_API_ROOT, // api的base_url
+    baseURL: '/api', // api的base_url
     timeout: 5000 // 请求超时时间
 })
 
