@@ -172,19 +172,19 @@
           <li style="width:28%">数量</li>
         </ul>
         <ul class="order_list">
-          <li v-for="(item,index) in listData" :key="index" class="clear">
+          <li  class="clear">
             <img style="float:left" :src="imgSrc+'/img/moduleManage/order_m01.png'" />
             <div style="float:left" class="order_information">
-              <p>{{item.goodsName}}</p>
-              <p>{{item.goodsIntroduction}}</p>
+              <p>{{listData.goodsName}}</p>
+              <p>{{listData.goodsIntroduction}}</p>
             </div>
-            <div style="float:left" class="order_number">{{item.moduleordernum}}</div>
+            <div style="float:left" class="order_number">{{listData.moduleordernum}}</div>
           </li>
         </ul>
         <ul class="receiving_list">
           <li>订单号：{{this.listData.orderNumber}}</li>
-          <!-- <li v-for="(item,index) in listData" :key="index">收货信息：{{item.detailAddress}}</li> -->
-          <li v-for="(item,index) in listData" :key="index">订单时间：{{item.orderTime}}</li>
+          <li>收货信息：{{listData.detailAddress}}</li>
+          <li>订单时间：{{listData.orderTime}}</li>
           <li>厂家联系人：</li>
           <li>发货时间：</li>
           <li>快递公司：</li>
@@ -362,7 +362,6 @@ export default {
         }
       }).then(res => {
         this.listData=res.data.list[0]
-        console.log(this.listData)
       });
     },
     //获取公司名和订单号
